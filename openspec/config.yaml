@@ -1,0 +1,81 @@
+
+schema: spec-driven
+
+context: |
+  Project: AI-Powered PDF Chatbot using Retrieval-Augmented Generation (RAG).
+
+  Technical constraints:
+  - Frontend: React with Vite.
+  - Backend: Python with FastAPI.
+  - LLM inference: Groq Cloud API.
+  - Embeddings: Sentence Transformers.
+  - Vector database: FAISS.
+  - PDF extraction: PyMuPDF.
+  - Version control: Git.
+
+  Architecture constraints:
+  - Use a separate frontend and backend architecture.
+  - React communicates with FastAPI through HTTP APIs.
+  - PDF extraction, chunking, embedding generation and retrieval
+    are handled by the backend.
+  - FAISS is used for local vector storage and similarity search.
+  - Groq provides cloud-based LLM inference.
+  - Do not require local LLM execution or NVIDIA GPU support.
+
+  Security constraints:
+  - Never hardcode API keys or credentials.
+  - Store secrets in environment variables.
+  - Never commit secrets to Git.
+  - Send only the retrieved context needed for answering
+    questions to the external LLM API.
+
+  Development methodology:
+  - Follow Spec-Driven Development using OpenSpec.
+  - Specifications must be reviewed before implementation.
+  - Implementation must follow approved tasks.
+  - Verify changes against acceptance criteria.
+
+rules:
+  proposal:
+    - Clearly explain the problem and proposed solution.
+    - Define scope and out-of-scope functionality.
+    - Identify affected system components.
+    - Include measurable success criteria.
+
+  specs:
+    - Write requirements in clear and testable language.
+    - Use SHALL for mandatory requirements.
+    - Include acceptance scenarios.
+    - Document error handling and edge cases.
+    - Avoid ambiguous requirements.
+
+  design:
+    - Explain architecture and component responsibilities.
+    - Document data flow between frontend and backend.
+    - Include API contracts where relevant.
+    - Address security, performance and failure scenarios.
+    - Explain significant technology choices.
+
+  tasks:
+    - Break implementation into small, independently verifiable tasks.
+    - List dependencies between tasks.
+    - Include verification steps.
+    - Reference relevant specification requirements.
+    - Avoid combining unrelated implementation tasks.
+
+operations:
+  apply:
+    guidance:
+      - Read the approved proposal, specifications and design before coding.
+      - Implement only approved tasks.
+      - Do not introduce unrequested features.
+      - Run relevant verification after implementation.
+      - Report modified files and verification results.
+      - Stop and request clarification if requirements are ambiguous.
+
+  archive:
+    guidance:
+      - Verify implementation against approved requirements.
+      - Summarize completed tasks and verification results.
+      - Preserve the final specifications.
+      - Identify incomplete work and known limitations.
